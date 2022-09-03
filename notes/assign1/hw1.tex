@@ -1,0 +1,119 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\newcommand {\R}{\mathbb{R}}
+\newcommand {\N}{\mathbb{N}}
+
+\title{%
+  Analysis of Algorithms \\
+  \large Homework 1 }
+
+\author{Thomas Schollenberger (tss2344)}
+
+\begin{document}
+\maketitle
+
+\section*{Problem \#1}
+Rank the following functions by order of growth. Further, partition the list into equivalence classes such that
+functions \(f(n)\) and \(g(n)\) are in the same class iff \(f(n) \in \theta(g(n))\).
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|}
+    \hline
+    \(\ln{(\ln{(x)}})\) & \(n2^n\) & \(n^{\lg{(\lg{(n)})}}\) & \(\ln{n}\) & \(1\) \\
+    \hline
+    \((\lg{(n)})^{\lg{(n)}}\) & \(e^n\) & \(4^{\lg{(n)}}\) & \((n + 1)!\) & \(\sqrt{\lg{(n)}}\) \\
+    \hline
+    \(n^3\) & \((\lg{(n)})^2\) & \(\lg{n!}\) & \(2^{2^{n}}\) & \(\frac{3}{2}^n\) \\
+    \hline
+    \(2^{\sqrt{2\lg{(n)}}}\) & \(n\) & \(2^{n}\) & \(n\lg{(n)}\) & \(2^{2^{n+1}}\) \\
+    \hline
+    \(2^{\lg{(n)}}\) & \(\sqrt{2}^{\lg{(n)}}\) & \(n^2\) & \(n!\) & \((\lg{(n)})!\) \\
+    \hline
+\end{tabular}
+\end{center}
+Equivalence Classes, where \(a \in \R\):
+\[[\theta(1)] = \{1\},\]
+\[[\theta(\sqrt{\lg{(x)}})] = \{\sqrt{\lg{(n)}}\},\]
+\[[\theta(\ln{(x)})] = \{\ln{(\ln{(n)})}, ln{(n)}\},\]
+\[[\theta(\lg{(x)})] = \{n\lg{(n)}, \lg{(n!)}\},\]
+\[[\theta(x)] = \{n\},\]
+\[[\theta(a^{\sqrt{n}})] = \{2^{\sqrt{2\lg{(n)}}}\},\]
+\[[\theta(x^2)] = \{n^2, (\lg{(n)})^2\},\]
+\[[\theta(x^3)] = \{n^3\},\]
+\[[\theta(a^{\lg{(n)}})] = \{2^{\lg{(n)}}, \sqrt{2}^{\lg{(n)}}, (\lg{(n)})^{\lg{(n)}}, 4^{\lg{(n)}}\},\]
+\[[\theta(n^{\lg{(n)}})] = \{n^{\lg{(\lg{(n)})}}\},\]
+\[[\theta(a^n)] = \{n2^n, e^n, 2^n, \frac{3}{2}^n\},\]
+\[[\theta(a^{a^x})] = \{2^{2^n}, 2^{2^{n+1}}\},\]
+\[[\theta(x!)] = \{n!, (\lg{(n)})!, (n + 1)!\}\]
+Where the equivalence classes are ordered by growth, from \(\theta(1)\), being the lowest growth, to \(\theta(x!)\), being the highest growth.
+
+\section*{Problem \#2}
+Let: \[a, b, c, k \in \R \]
+We have the following functions: \[ \sqrt[k]{x}, a^x, x^c, \log_b{x} \]
+We can translate them into: \[ x^\frac{1}{k}, a^x, x^c, \frac{\log{x}}{\log{b}} \]
+For all constants, \(\lim_{x\to\infty}\): \[
+    x^\frac{1}{k} < x^c,
+    \frac{\log{x}}{\log{b}} < x^c,
+    x^c < a^x,
+    x^\frac{1}{k} < \frac{\log{x}}{\log{b}}
+\]
+Which gives us: \[ x^\frac{1}{k} < \frac{\log{x}}{\log{b}} < x^c < a^x \]
+
+\section*{Problem \#3}
+For all three proofs, consider:
+\[ f(x) = n \implies f(x) \in \mathcal{O}(g(x)) \]
+\[ N, c \in \R, N, c = 1 \]
+\[ |f(x)| \leq c|g(x)| \]
+\subsection*{a. Prove the following:}
+Using the class definition of Big O, prove that \[ n = \mathcal{O}(n^2) \]
+Suppose:
+\[x \geq N \]
+\[N \leq x \implies x \leq x^2 \]
+\[x \leq x^2 \implies |x| \leq c|x^2| \]
+Thus:
+\[n = \mathcal{O}(n^2) \]
+\subsection*{b. Prove the following:}
+Using the class definition of Big O, prove that \[ n^2 = \mathcal{O}(n^2) \]
+Suppose:
+\[x \geq N \]
+\[N \leq x \implies x + x \leq x^2 + x \]
+\[x + x \leq x^2 + x \implies |x^2| \leq |x^3| \]
+Remember:
+\[\mathcal{O}(x^2) \subset \mathcal{O}(x^3) \]
+Thus, if:
+\[n^2 = \mathcal{O}(n^3) \]
+Then:
+\[n^2 = \mathcal{O}(n^2) \]
+\subsection*{c. Prove the following:}
+Using the class definition of Big O, prove that \[ 3n^2 + 5n = \mathcal{O}(n^2) \]
+Suppose:
+\[3x^2 + 5x \leq 3x^2 + 5x \]
+\[3x^2 + 5x \leq 3x^2 + 5x^2 \]
+\[3x^2 + 5x \leq 8x^2 \]
+Thus:
+\[N = 8, C = 1\]
+\[|3x^2 + 5x| \leq 1|8x^2|\]
+\[3x^2 + 5x = \mathcal{O}(x^2)\]
+
+\section*{Project \#4}
+Big \(\mathcal{O}\) proofs
+
+\subsection*{a. Given that \(\sum_{k=2}^n \frac{1}{k} \leq \ln{(n)} - \ln{(1)}\), using the class definition of \(\mathcal{O}\), prove that \(H_n \in \mathcal{O}(\ln{(n)})\)}
+
+
+
+\section*{Problem \#6}
+Consider the following recurrence:
+\[f(0; a, b) = a\]
+\[f(1; a, b) = b\]
+\[f(n; a, b) = f(n - 1; b, a + b)\]
+\subsection*{a. Prove using mathematical induction that for any \(n \in \N\) if \(n > 1\) then}
+\[f(n; a, b) = f(n - 1; a, b) + f(n - 2; a, b)\]
+Base Case, \(n = 2\):
+\[f(n; a, b) = f(n - 1; a, b) + f(n - 2; a, b)\]
+Step, \(n + 1\):
+\[f(n + 1; a, b) \implies (n+1) + f(n; a, b) = f(n - 1; a, b) + f(n - 2; a, b) + (n + 1)\]
+
+\end{document}
