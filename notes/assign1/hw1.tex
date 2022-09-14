@@ -45,9 +45,33 @@ Equivalence Classes, where \(a \in \R\):
 \[[\theta(a^{\lg{(n)}})] = \{2^{\lg{(n)}}, \sqrt{2}^{\lg{(n)}}, (\lg{(n)})^{\lg{(n)}}, 4^{\lg{(n)}}\},\]
 \[[\theta(n^{\lg{(n)}})] = \{n^{\lg{(\lg{(n)})}}\},\]
 \[[\theta(a^n)] = \{n2^n, e^n, 2^n, \frac{3}{2}^n\},\]
+\[[\theta(x!)] = \{(\lg{(n)})!, n!, (n + 1)!\}\]
 \[[\theta(a^{a^x})] = \{2^{2^n}, 2^{2^{n+1}}\},\]
-\[[\theta(x!)] = \{n!, (\lg{(n)})!, (n + 1)!\}\]
-Where the equivalence classes are ordered by growth, from \(\theta(1)\), being the lowest growth, to \(\theta(x!)\), being the highest growth.
+And the order of the functions, from highest to lowest, are:
+\[2^{2^{n+1}}\]
+\[2^{2^n}\]
+\[(n+1)!\]
+\[n!\]
+\[e^{n}\]
+\[n\left(2\right)^{n}\]
+\[2^{n}\]
+\[\frac{3}{2}^n\]
+\[n^{\lg{(\lg{(n)})}}\]
+\[(\lg{(n)})^{\lg{(n)}}\]
+\[4^{\lg{(n)}}\]
+\[\lg{(n)})!\]
+\[n^3\]
+\[n^2\]
+\[n\lg{(n)}\]
+\[\lg{(n!)}\]
+\[2^{\lg{(n)}}, n \left(\text{These are functionally equivalent}\right)\]
+\[\sqrt{2}^{\lg{(n)}}\]
+\[2^{\sqrt{2\lg{(n)}}}\]
+\[\lg{(n)}^2\]
+\[ln{(n)}\]
+\[\sqrt{\lg{(n)}}\]
+\[\ln{(\ln{(n)})}\]
+\[1\]
 
 \section*{Problem \#2}
 Let: \[a, b, c, k \in \R \]
@@ -77,14 +101,10 @@ Thus:
 \subsection*{b. Prove the following:}
 Using the class definition of Big O, prove that \[ n^2 = \mathcal{O}(n^2) \]
 Suppose:
-\[x \geq N \]
-\[N \leq x \implies x + x \leq x^2 + x \]
-\[x + x \leq x^2 + x \implies |x^2| \leq |x^3| \]
-Remember:
-\[\mathcal{O}(x^2) \subset \mathcal{O}(x^3) \]
-Thus, if:
-\[n^2 = \mathcal{O}(n^3) \]
-Then:
+\[1 \geq 1 \]
+\[1 \leq 1 \implies x \leq x \]
+\[x \leq x \implies |x^2| \leq 1|x^2| \]
+Thus:
 \[n^2 = \mathcal{O}(n^2) \]
 \subsection*{c. Prove the following:}
 Using the class definition of Big O, prove that \[ 3n^2 + 5n = \mathcal{O}(n^2) \]
@@ -103,17 +123,33 @@ Big \(\mathcal{O}\) proofs
 \subsection*{a. Given that \(\sum_{k=2}^n \frac{1}{k} \leq \ln{(n)} - \ln{(1)}\), using the class definition of \(\mathcal{O}\), prove that \(H_n \in \mathcal{O}(\ln{(n)})\)}
 
 
+\section*{Problem \#5}
+The smallest \{n\} that fib starts slowing down at is 30.
 
 \section*{Problem \#6}
 Consider the following recurrence:
 \[f(0; a, b) = a\]
 \[f(1; a, b) = b\]
 \[f(n; a, b) = f(n - 1; b, a + b)\]
-\subsection*{a. Prove using mathematical induction that for any \(n \in \N\) if \(n > 1\) then}
-\[f(n; a, b) = f(n - 1; a, b) + f(n - 2; a, b)\]
-Base Case, \(n = 2\):
-\[f(n; a, b) = f(n - 1; a, b) + f(n - 2; a, b)\]
-Step, \(n + 1\):
-\[f(n + 1; a, b) \implies (n+1) + f(n; a, b) = f(n - 1; a, b) + f(n - 2; a, b) + (n + 1)\]
+\subsection*{a. Prove using mathematical induction that for any \(n \in \N\) if \(n > 1\) then \(f(n; a, b) = f(n - 1; a, b) + f(n - 2; a, b)\)}
+% \[f(n; a, b) = f(n - 1; a, b) + f(n - 2; a, b)\]
+Base Case, \(n = 2, a = 0, b = 1\):
+\[f(2; 0, 1) = f(1; 1, 0 + 1) = 1 = f(1; 0, 1) + f(0; 0, 1) = f(2 - 1; 0, 1) + f(2 - 2; 0, 1)\]
+% \[f(2; a, b) = f(n - 1; a, b) + f(n - 2; a, b) = 1 + 0 = 1\]
+% If we assume that for any \(n, f(n; a, b) = f(n - 1; a, b) + f(n - 2; a, b)\), then it follows that:
+% \[f(n + 1; a, b) \implies (n+1) + f(n; a, b) = f(n - 1; a, b) + f(n - 2; a, b) + (n + 1)\]
+
+% Then the equation for n would be
+% \[f(n; a, b) = f(n - 1; b, a + b)\]
+% \[f(3; 0, 1) = f(2; 1, 1) = f(1; 1, 2) = 2\]
+% \[f(4; 0, 1) = f(3; 1, 1) = f(2; 1, 2) = f()\]
+% \[f(5; 0, 1) = f(4; 1, 1) = f(3; 1, 2) = f(2; 2, 3) = f(1; 2, 3) = 3\]
+
+
+Assume that \(f(n; a, b) = f(n - 1; b, a + b)\) is true, then:
+\[f(n + 1; a, b) = f(n; b, a + b) + f(1; b, a + b)\]
+
+\section*{Problem \#7}
+Exceeds maximum recursion depth before slowing down at all
 
 \end{document}

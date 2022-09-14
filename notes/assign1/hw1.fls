@@ -153,6 +153,10 @@ INPUT C:\Users\iamze\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\sym
 OUTPUT hw1.pdf
 INPUT C:\Users\iamze\AppData\Local\MiKTeX\fonts\map\pdftex\pdftex.map
 INPUT C:\Users\iamze\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmbx12.tfm
+INPUT C:\Users\iamze\AppData\Local\Programs\MiKTeX\tex\latex\base\omscmr.fd
+INPUT C:\Users\iamze\AppData\Local\Programs\MiKTeX\tex\latex\base\omscmr.fd
+INPUT C:\Users\iamze\AppData\Local\Programs\MiKTeX\tex\latex\base\omscmr.fd
+INPUT C:\Users\iamze\AppData\Local\Programs\MiKTeX\tex\latex\base\omscmr.fd
 INPUT hw1.aux
 INPUT C:\Users\iamze\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmbx12.pfb
 INPUT C:\Users\iamze\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmbx12.pfb
