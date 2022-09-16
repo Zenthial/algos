@@ -2,6 +2,7 @@
 
 \usepackage{amsmath}
 \usepackage{amssymb}
+\usepackage[shortlabels]{enumitem}
 
 \newcommand {\R}{\mathbb{R}}
 \newcommand {\N}{\mathbb{N}}
@@ -121,7 +122,41 @@ Thus:
 Big \(\mathcal{O}\) proofs
 
 \subsection*{a. Given that \(\sum_{k=2}^n \frac{1}{k} \leq \ln{(n)} - \ln{(1)}\), using the class definition of \(\mathcal{O}\), prove that \(H_n \in \mathcal{O}(\ln{(n)})\)}
+Assuming \(1 \geq 1\), then:
+\begin{align}
+1 &\leq 1\\
+n &\leq n\\
+\ln{(n)} &\leq \ln{(n)}\\
+\ln{(n)} - \ln{(1)} &\leq \ln{(n)} - \ln{(1)}\\
+|\ln{(n)} - \ln{(1)}| &\leq 1|\ln{(n)}|
+\end{align}
+However, this only proves that \(H_2 \in \mathcal{O}(\ln{(n)})\). To prove \(H_1\), we need to add a one to each side:
+\begin{align}
+&\ln{(n)} - \ln{(1)} + 1 \leq \ln{(n)} + 1\\
+&\ln{(n)} \leq \ln{(n)} - \ln{(1)} + 1 \leq \ln{(n)} + 1\\
+&\ln{(n + 1)} \leq \ln{(n)} - \ln{(1)} \leq \ln{(n)}
+\end{align}
+Which shows that \(H_n \in \mathcal{O}(\ln{(n)})\)
 
+\subsection*{b. Given that \(\sum_{k=2}^n \frac{1}{k} \geq \ln{(n + 1)} - \ln{(2)}\), using the class definition of \(\mathcal{\omega}\), prove that \(H_n \in \mathcal{\omega}(\ln{n})\)}
+Assuming \(1 \leq 1\), then:
+\begin{align}
+1 &\geq 1\\
+n &\geq n\\
+\ln{(n)} &\geq \ln{(n)}\\
+\ln{(n)} - \ln{(2)} &\geq \ln{(n)} - \ln{(2)}\\
+|\ln{(n)} - \ln{(2)}| &\geq 1|\ln{(n)} - \ln{(2)}|
+\end{align}
+We then need to add + 1 to both sides:
+\begin{align}
+&|\ln{(n)} - \ln{(2)} + 1| \geq 1|\ln{(n)} - \ln{(2)} + 1|\\
+&|\ln{(n)} - \ln{(2)} + 1| \geq 1|\ln{(n)} - \ln{(2)} + 1|\\
+&|\ln{(n + 1)}| \geq |\ln{(n)} - \ln{(2)} + 1| \geq 1|\ln{(n)} - \ln{(2)} + 1|
+\end{align}
+
+Which then we can shift to
+\[|\ln{(n)}| \geq |\ln{(n + 1)} - \ln{(2)}| \geq 1|\ln{(n + 1)} - \ln{(2)}|\]
+Which shows that \(H_n \in \mathcal{\omega}(\ln{(n)})\)
 
 \section*{Problem \#5}
 The smallest \{n\} that fib starts slowing down at is 30.
