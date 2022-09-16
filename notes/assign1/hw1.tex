@@ -131,7 +131,7 @@ Consider the following recurrence:
 \[f(0; a, b) = a\]
 \[f(1; a, b) = b\]
 \[f(n; a, b) = f(n - 1; b, a + b)\]
-\subsection*{a. Prove using mathematical induction that for any \(n \in \N\) if \(n > 1\) then \(f(n; a, b) = f(n - 1; a, b) + f(n - 2; a, b)\)}
+\subsection*{a. Prove using mathematical induction that for any \(n \in \N\) if \(n > 1\) then \(f(n; a, b) = f(n - 1; a, b) + f(n - 2; a, b)\).}
 % \[f(n; a, b) = f(n - 1; a, b) + f(n - 2; a, b)\]
 Observe that, for \(n = 2\):
 \begin{align}
@@ -149,7 +149,18 @@ f(k + 1; a, b) &= f(k; b, a + b)\\
 \end{align}
 
 Which proves f(n; a, b) = f(n - 1; a, b) + f(n - 2; a, b)
-
+\subsection*{b. Prove using the strong form of induction that for any \(n \in \N, F_n = f(n; 0, 1)\). You should use the previous
+result in your proof.}
+Suppose \(F_2, F_3, ..., F_k \implies F_{k+1}\)
+\[F_2 = f(2; 0, 1) = f(1; 0, 1) + f(0; 0, 1) = 1 + 0 = 1\]
+\[F_3 = f(3; 0, 1) = f(2; 1, 1 + 0) = f(1; 1, 1 + 0 + 1) = 1 + 0 + 1 = 2\]
+\[F_k = f(k - 1; 0, 1) + f(k - 2; 0, 1)\]
+Assume that \(F_k = f(k - 1; 0, 1) + f(k - 2; 0, 1)\), then
+\begin{align}
+F_{k+1} &= f(k; 0, 1) + f(k - 1; 0, 1)\\
+&= f(k + 1; 0, 1)
+\end{align}
+Which proves that for all n, \(F_n = f(n; 0, 1)\)
 \section*{Problem \#7}
 Exceeds maximum recursion depth before slowing down at all
 
