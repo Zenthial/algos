@@ -1,0 +1,141 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{enumitem}
+
+\newcommand {\R}{\mathbb{R}}
+\newcommand {\N}{\mathbb{N}}
+
+\title{%
+  Analysis of Algorithms \\
+  \large Homework 2 }
+
+\author{Thomas Schollenberger (tss2344)}
+
+\begin{document}
+\maketitle
+
+\section*{Problem \#1}
+
+
+\section*{Problem \#2}
+The function fibItHelper implemented the recurrence \(f(n; a, b)\). What is the time complexity of fibItHelper?
+Write down a recurrence relation \(T_f(n)\) that characterizes the time complexity in terms of the number of additions (plusses) performed;
+then solve the recurrence exactly using iteration.
+
+\begin{subequations}
+\begin{align}
+T_f(0) &= 0 \\
+T_f(1) &= 0 \\
+T_f(n + 1) &= 1 + T_f(n)
+\end{align}
+\end{subequations}
+Which makes \(T_f(n) = n - 1\)
+
+\section*{Problem \#3}
+Let \(L: \N^2 \rightarrow \N^2\) be defined as \(L(a, b) = (b, a + b)\).
+Then \(f(n; a, b)\) can be understood as \((L^{n}(a, b))_1\).
+Prove that \(n \in \N, L^{n}(a, b) = (f(n; a, b), f(n + 1; a, b)).\)
+\\
+Base case:
+\begin{subequations}
+\begin{align}
+L^0(a, b) = 1(a, b)_1 = a = f(0; a, b)
+\end{align}
+
+Assume that \(L^{n}(a, b) = (f(n; a, b), f(n + 1; a, b))\) is true, where \(0 \leq k < n\), then:
+\begin{align}
+L^{k + 1}(a, b) &= L_{k+1}(L_{k}(...(L_2(L_1(a, b)))))\\
+L^{k + 1}(a, b) &= L_{k+1}(f(n; a, b), f(n + 1; a, b))\\
+L^{k + 1}(a, b) &= (f(n + 1; a, b), f(n + 1; a, b) + f(n; a, b))\\
+L^{k + 1}(a, b) &= (f(n + 1; a, b), f(n + 2; a, b))
+\end{align}
+\end{subequations}
+
+\section*{Problem \#5}
+\begin{enumerate}[label=(\alph*)]
+    \item An algorithm runs in pseudo-polynomial time if the runtime is some polynomial in the numeric value of the input, rather than in the number of bits required to represent it
+    \item Yes. It is pseudo-polynomial because it scales exponentially in steps whenever you increase n by 1. This explains why it slows drastically by n = 30.
+    \item No. It is a polynomial time algorithm, as it linearly scales (bits * n), which is what allows it to be extremely fast.
+\end{enumerate}
+
+\section*{Problem \#6}
+Solve the following recurrences exactly using the iteration method. In all cases, \(T(0) = 0\).
+Answers should be expressed in terms of \(T(n)\)
+
+\subsection*{a. \(T(n + 1) = T(n) + 5\)}
+\begin{subequations}
+\begin{align}
+T(n + 1) &= T(n) + 5 \\
+&= (T(n - 1) + 5) + 5 \\
+&= ((T(n - 2) + 5) + 5) + 5 \\
+T(n) &= T(n - k) + 5k \\
+T(n) &= 5n
+\end{align}
+\end{subequations}
+
+\subsection*{b. \(T(n + 1) = n + T(n)\)}
+\begin{subequations}
+  \begin{align}
+    T(n + 1) = n + T(n) \\
+    &= n(n + T(n - 1)) \\
+    &= (n + 1)(n((n - 1) + T(n - 2))) \\
+    T(n) &= T(n - k) + \sum_{i=0}^{k}(n - i)\\
+    T(n) &= n!
+  \end{align}
+\end{subequations}
+
+\section*{Problem \#7}
+Solve the following recurrences exactly using the iteration method. In all cases, \(T(0) = 1\).
+Answers should be expressed in terms of \(T(n)\)
+
+\subsection*{a. \(T(n + 1) = 2T(n)\)}
+\begin{subequations}
+  \begin{align}
+    T(n + 1) &= 2T(n) \\
+    &= 2(2T(n - 1)) \\
+    &= 2(2(2T(n - 2))) \\
+    T(n) &= 2kT(n - k) \\
+    T(n) &= 2n
+  \end{align}
+\end{subequations}
+
+\subsection*{b. \(T(n + 1) = 2^{n + 1} + T(n)\)}
+\begin{subequations}
+  \begin{align}
+    T(n + 1) &= 2^{n + 1} + T(n) \\
+    &= 2^{n + 1} + (2^{n} + T(n - 1)) \\
+    &= 2^{n + 1} + (2^{n} (2^{n - 1} + T(n - 2))) \\
+    T(n) = \sum_{i=0}^{k}(2^{n - 1}) + T(n - k)
+    T(n) = 2^{n!}
+  \end{align}
+\end{subequations}
+
+\section*{Problem \#8}
+Solve the following recurrences exactly using the iteration method. In all cases, \(T(1) = 1\).
+Answers should be expressed in terms of \(T(n)\)
+
+\subsection*{a. \(T(n) = n + T(n/2)\) (Assume \(n\) has the form \(n = 2^m\).)}
+\begin{subequations}
+  \begin{align}
+    T(n) &= n + T(n/2) \\
+    &= n + (n/2 + T((n/2)/2)) \\
+    &= n + (n/2 + (n/4 + T((n/4)/2))) \\
+    m &= \lg(n) \\
+    T(n) &= n + n(\lg(n))
+  \end{align}
+\end{subequations}
+
+\subsection*{b. \(T(n) = 1 + T(n/3)\) (Assume \(n\) has the form \(n = 3^m\).)}
+\begin{subequations}
+  \begin{align}
+    T(n) &= 1 + T(n/3) \\
+    &= 1 + (1 + T((n/3)/3)) \\
+    &= 1 + (1 + (1 + T(((n/3)/3)/3))) \\
+    m &= log_3(n) \\
+    T(n) &= 1 + \log_{3}(n)
+  \end{align}
+\end{subequations}
+
+\end{document}

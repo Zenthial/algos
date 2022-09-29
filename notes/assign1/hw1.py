@@ -29,7 +29,7 @@ def fib(n):
 def fibItHelper(n, a, b):
     if n == 0:
         return a
-    elif n == 0:
+    elif n == 1:
         return b
     else:
         return fibItHelper(n - 1, b, a + b)
