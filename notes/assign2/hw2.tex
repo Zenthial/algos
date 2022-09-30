@@ -17,7 +17,25 @@
 \maketitle
 
 \section*{Problem \#1}
-
+Recall:
+\[
+  lim_{x\to\infty} \frac{f(n)}{g(n)} = c \text{ and } c \ne 0 \text{ is a constant, then } f(n) \in \theta(g(n))
+\]
+Let \(f(n)\) be \(T_F\) and \(g(n)\) be \(\varphi^n\)
+\begin{subequations}
+  \begin{align}
+    \displaystyle\lim_{x\to\infty} \frac{T_F(n)}{\varphi^n} &= \displaystyle\lim_{x\to\infty} \frac{F_{n + 1} - 1}{\varphi^n}\\
+    &= \displaystyle\lim_{x\to\infty} \frac{\frac{1}{\sqrt{5}}(\varphi^{n+1} - \hat{\varphi}^{n+1}) - 1}{\varphi^n} \\
+  \end{align}
+  We know that \(\varphi\) is \(> 0\) and \(\hat{\varphi}\) is \(< 0\). Because of that, we know that:
+  \begin{align}
+    \displaystyle\lim_{x\to\infty} \hat{\varphi}^n &= 0 \\
+    &= \displaystyle\lim_{x\to\infty} \frac{\frac{1}{\sqrt{5}}\varphi^{n+1} - 1}{\varphi^n} \\
+    &= \displaystyle\lim_{x\to\infty} \frac{\frac{1}{\sqrt{5}}\varphi^{n+1}}{\varphi^n} \\
+    &= \displaystyle\lim_{x\to\infty} \frac{1}{\sqrt{5}}\varphi \\
+    &= \frac{\varphi}{\sqrt{5}}
+  \end{align}
+\end{subequations}
 
 \section*{Problem \#2}
 The function fibItHelper implemented the recurrence \(f(n; a, b)\). What is the time complexity of fibItHelper?
@@ -122,8 +140,8 @@ Answers should be expressed in terms of \(T(n)\)
     T(n) &= n + T(n/2) \\
     &= n + (n/2 + T((n/2)/2)) \\
     &= n + (n/2 + (n/4 + T((n/4)/2))) \\
-    m &= \lg(n) \\
-    T(n) &= n + n(\lg(n))
+    T(n) &= n + (n/2k + T(n/2k)) \\
+    T(n) &= 2n - 1
   \end{align}
 \end{subequations}
 

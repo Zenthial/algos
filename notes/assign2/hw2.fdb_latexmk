@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1664488495 "c:/Users/iamze/Documents/Dendron/Algorthims/notes/assign2/hw2.tex" "hw2.pdf" "hw2" 1664488496
+["pdflatex"] 1664521931 "c:/Users/iamze/Documents/Dendron/Algorthims/notes/assign2/hw2.tex" "hw2.pdf" "hw2" 1664521932
   "C:/Users/iamze/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1663307935 80909 eab91d9745dd2edfd62a31d53cd5fe15 ""
   "C:/Users/iamze/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1662166111 10374549 774da14af08523a02750168206c9cd24 ""
   "C:/Users/iamze/AppData/Local/Programs/MiKTeX/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1233951848 1004 54797486969f23fa377b128694d548df ""
@@ -49,8 +49,8 @@
   "C:/Users/iamze/AppData/Local/Programs/MiKTeX/tex/latex/base/size10.clo" 1657041432 8448 e0391042ca0932ede1098ae14ada60ba ""
   "C:/Users/iamze/AppData/Local/Programs/MiKTeX/tex/latex/enumitem/enumitem.sty" 1561039820 51697 f8f08183cd2080d9d18a41432d651dfb ""
   "C:/Users/iamze/AppData/Local/Programs/MiKTeX/tex/latex/l3backend/l3backend-pdftex.def" 1661237706 30737 1b92a9b24781f898fb8680eb9038ebfb ""
-  "c:/Users/iamze/Documents/Dendron/Algorthims/notes/assign2/hw2.tex" 1664488494 4322 29f646dc8acdc7c8ed1e78930a04fae3 ""
-  "hw2.aux" 1664488496 32 ab05033ccbb38b00a31b200ccedf8001 "pdflatex"
+  "c:/Users/iamze/Documents/Dendron/Algorthims/notes/assign2/hw2.tex" 1664521930 5324 3d318d11dc232ce39892793cb5cbd96d ""
+  "hw2.aux" 1664521931 32 c81c40425fbb5e93b90fba65da0b5e61 "pdflatex"
   (generated)
   "hw2.aux"
   "hw2.log"
