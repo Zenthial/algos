@@ -1,0 +1,204 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[shortlabels]{enumitem}
+
+\newcommand {\R}{\mathbb{R}}
+\newcommand {\N}{\mathbb{N}}
+
+\title{%
+  Analysis of Algorithms \\
+  \large Homework 3 }
+
+\author{Thomas Schollenberger (tss2344)}
+
+\begin{document}
+    \maketitle
+    \section*{Problem \#2}
+    \begin{subequations}
+        \begin{align}
+            search([1,2,3], 2) &= searchHelp([1,2,3], 2, 0, 2) \\
+            \hat{m} &= 0 + \lfloor(2-0)/2\rfloor \\
+            \hat{m} &= 2 \\
+            v &< a[\hat{m}] \\
+            &= searchHelp([1,2,3], 2, 0, 2)
+        \end{align}
+    \end{subequations}
+    Which results in an infinite loop, as the final searchHelp call is identical to the initial.
+    This is because the \(\hat{m}\) calculation is returning 2, the length of the array minus one, 
+    but the binary search operation is not incrementing or decrementing \(\hat{m}\) when recursively calling it.
+
+    \section*{Problem \#3}
+    \subsection*{a. Strassen's Algorithm computation:}
+    \[
+        \begin{pmatrix}
+            1 & 3 \\
+            7 & 5
+        \end{pmatrix}
+        \begin{pmatrix}
+            6 & 8 \\
+            4 & 2
+        \end{pmatrix}
+    \]
+    \begin{subequations}
+        \begin{align}
+        M_1 &= (1 + 5)(6 + 2) \\
+        M_2 &= (7 + 5)(6) \\
+        M_3 &= (1)(8 - 2) \\
+        M_4 &= (5)(4 - 6) \\
+        M_5 &= (1 + 3)(2) \\
+        M_6 &= (7 - 1)(6 + 8) \\
+        M_7 &= (3 - 5)(4 + 2)
+        \end{align}
+    \end{subequations}
+    \[
+      \begin{bmatrix}
+        C_{11} & C_{12} \\
+        C_{21} & C_{22}
+      \end{bmatrix}
+      =
+      \begin{bmatrix}
+        M_1 + M_4 - M_5 + M_7 & M_3 + M_5 \\
+        M_2 + M_4 & M_1 - M_2 + M_3 + M_6
+      \end{bmatrix}
+    \]
+    \[
+      \begin{bmatrix}
+        C_{11} & C_{12} \\
+        C_{21} & C_{22}
+      \end{bmatrix}
+      =
+      \begin{bmatrix}
+        18 & 14 \\
+        62 & 66
+      \end{bmatrix}
+    \]
+    \[
+      C
+      =
+      \begin{bmatrix}
+        18 & 14 \\
+        62 & 66
+      \end{bmatrix}
+    \]
+    \subsection*{b. Strassen's Algorithm pseudo-code:}
+    \[
+        \text{strassen}(A, B) = 
+        \begin{cases}
+            \text{A x B}, & \text{if a.rows = 1} \\
+            \begin{pmatrix}
+                C_{11} & C_{12} \\
+                C_{21} & C_{22}
+            \end{pmatrix}, & \text{otherwise }
+        \end{cases}
+    \]
+    \begin{align*}
+        \text{where}
+        \begin{pmatrix}
+            A_{11} & A_{12} \\
+            A_{21} & A_{22}
+        \end{pmatrix}
+        &= A \\
+        \begin{pmatrix}
+            B_{11} & B_{12} \\
+            B_{21} & B_{22}
+        \end{pmatrix}
+        &= B \\
+        P_1 = \text{strassen}&(A_{11}, (B_{12} - B_{22})) \\
+        P_2 = \text{strassen}&((A_{11} + A_{12}), B_{22}) \\
+        P_3 = \text{strassen}&((A_{21} + A_{22}), B_{11}) \\
+        P_4 = \text{strassen}&(A_{22}, (B_{21} - B_{11})) \\
+        P_5 = \text{strassen}&((A_{11} + A_{22}), (B_{11} + B_{22})) \\
+        P_6 = \text{strassen}&((A_{12} - A_{22}), (B_{21} + B_{22})) \\
+        P_7 = \text{strassen}&((A_{11} - A_{21}), (B_{11} + B_{12})) \\
+        C_{11} = P_5 &+ P_4 - P_2 + P_6 \\
+        C_{12} = P_1 &+ P_2 \\
+        C_{21} = P_3 &+ P_4 \\
+        C_{22} = P_5 &+ P_1 - P_3 - P_7
+    \end{align*}
+    \subsection*{c. Verify that \(C_{2,1} = A_{21}B_{11} + A_{22}B_{21}\)}
+    \begin{align*}
+        C_{2,1} &= P_3 + P_4 \\
+        &= (A_{21} + A_{22})B_{11} + A_{22}(B_{21} - B_{11})\\
+        &= A_{21}B_{11} + A_{22}B_{11} + A_{22}B_{21} - A{22}B_{11} \\
+        &= A_{21}B_{11} + A_{22}B_{21}
+    \end{align*}
+    \subsection*{d. Verify that \(C_{2,2} = A_{21}B_{12} + A_{22}B_{22}\)}
+    \[C_{22} = P_5 + P_1 - P_3 - P_7\]
+    \[= (A_{11} + A_{22})(B_{11} + B_{22}) + A_{11}(B_{12} - B_{22}) - (A_{21} + A_{22})B_{11} - (A_{11} - A_{21})(B_{11} + B_{12})\]
+    \[= (A_{11} + A_{22})(B_{11} + B_{22}) + A_{11}B_{12} - A_{11}B_{22} - A_{21}B_{11} + A_{22}B_{11} - (A_{11} - A_{21})(B_{11} + B_{12})\]
+    \[= A_{11}B_{11} + A_{11}B_{22} + A_{22}B_{11} + A_{22}B_{22} + A_{11}B_{12} - A_{11}B_{22} - A_{21}B_{11} + A_{22}B_{11} - (A_{11} - A_{21})(B_{11} + B_{12})\]
+    \[= A_{11}B_{11} + A_{22}B_{11} + A_{22}B_{22} + A_{11}B_{12} - A_{21}B_{11} + A_{22}B_{11} - A_{11}B_{11} - A{21}B_{11} - A_{11}B_{12} - A_{21}B_{12}\]
+    \[= A_{22}B_{11} + A_{22}B_{22} - A_{21}B_{11} - A_{22}B_{11} - A{21}B_{11} + A_{21}B_{12}\]
+    \[= A_{22}B_{22} - A_{21}B_{11} + A{21}B_{11} + A_{21}B_{12}\]
+    \[= A_{22}B_{22} + A_{21}B_{12}\]
+    \subsection*{e. Solve this recurrence, assuming \(n = 2^m\)}
+    \begin{align*}
+        T(1) = 1 \\
+        T(n) = 7T(\frac{n}{2}) + \frac{9}{2}n^2
+    \end{align*}
+    \begin{subequations}
+        \begin{align}
+            T(n) &= 7T(\frac{n}{2} + \frac{9}{2}n^2) \\
+            &= 7[7T(\frac{\frac{n}{2}}{2}) + \frac{9}{2}\frac{n}{2}^2] + \frac{9}{2}n^2 \\
+            &= 7[7[7T(\frac{\frac{\frac{n}{2}}{2}}{2}) + \frac{9}{2}\frac{n}{4}^2] + \frac{9}{2}\frac{n}{2}^2] + \frac{9}{2}n^2 \\
+            &= 7[7[7T(2^{m-3}) + \frac{9}{2}(2^{m-2})^2] + \frac{9}{2}(2^{m-1})^2] + \frac{9}{2}(2^{m})^2 \\
+            &= 7^3T(2^{m-3}) + 7^2\frac{9}{2}(2^{m-2})^2 + 7\frac{9}{2}(2^{m-1})^2 + \frac{9}{2}(2^{m})^2 \\
+            &= 7^kT(2^{m-k}) + 7^{k-1}\frac{9}{2}(2^{m-(k-1)})^2 + 7^{k-2}\frac{9}{2}(2^{m-(k-2)})^2 + 7^{k-3}\frac{9}{2}(2^{m-(k-3)})^2 \\
+            &= 7^kT(2^{m-k}) + \sum_{i=0}^{k-1} 7^{i}\frac{9}{2}(2^{m-(i)})^2 \\
+            &= 7^{\lg{n}} - 6n^2
+        \end{align}
+    \end{subequations}
+    \subsection*{f. Modify Strassen's algorithm to work for a \(n\) x \(n\), where \(n\) is not an exact power of 2}
+    To achieve this, we would need to add zeros to the \(n\) x \(n\) matrix so it could become a \(2n\) x \(2n\) matrix.
+    From there, we would be performing 7 operations on a 2n matrix, which would make it run in \(\theta(2n^{\lg{(7)}})\), which is equivalent to \(\theta(n^{\lg{(7)}})\)
+    \subsection*{g. Show how to multiply complex numbers \(a + bi\) and \(c + di\) using only three multiplications of real numbers.
+      The algorithm should take the real numbers a, b, c, and d as input and produce the real component \(ac - bd\)
+      and the imaginary component \(ad + bc\) separately.
+    }
+    \[
+    \text{mult(a, b, c, d) = (real, imaginary)\text{, where:}}  
+    \]
+    \begin{align*}
+      mul_{1} &= a(c) \\
+      mul_{2} &= b(d) \\
+      mul_{3} &= (a+b)(c+d) \\
+      \text{real} &= mul_{1} - {mul_2} \\
+      \text{imaginary} &= mul_{3} - {mul_1} - mul_{2}
+    \end{align*}
+    \section*{Problem \#4}
+    Consider the recurrence \(T(1) = 0\), \(T(n) = T(\lfloor n/2 \rfloor) + T(\lceil n/2 \rceil) + n\).
+    \subsection*{a. Let \(D(n) = T(n + 1) - T(n)\). It is a fact that \(D(1) = 2\), \(D(n) = D(\lfloor n/2 \rfloor) + 1\). Prove using the strong
+    form of induction that for any \(n \in N\), if \(n \geq 1\) then \(D(n) = \lfloor \lg{(n)}\rfloor + 2\).}
+    \[\text{Proof by Strong Induction:}\]
+    \[\text{Base Cases:}\]
+    \[D(n) = T(n + 1) - T(n)\]
+    \[D(1) = 2\]
+    \[D(n) = D(\lfloor n/2 \rfloor) + 1\]
+    This means that \(\lfloor n \rfloor = 2^k\), \(D(n/2) = \lfloor\lg{(n)}\rfloor + D(1)\), thus:
+    \begin{align*}
+      D(n) &= D(\lfloor n/2 \rfloor) + 1 \\
+      D(n) &= \lfloor\lg{(n)}\rfloor + 1 + 1 \\
+      D(n) &= \lfloor\lg{(n)}\rfloor + 2
+    \end{align*}
+    For all \(n \in \N\), where \(n \geq 1\)
+    \subsection*{b. Then prove that \(T(n) - T(1) = \sum_{k=1}^{n-1} D(k)\), and show that an immediate consequence is that \(T(n) = \sum_{k=1}^{n-1} (\lfloor\lg{(n)}\rfloor + 2)\)}
+    We know that
+    \[D(n) = \lfloor \lg{(n)} \rfloor + 2\]
+    \[D(n) = T(n + 1) - T(n)\]
+    \[D(n - 1) = T(n) - T(n - 1)\]
+    Furthermore
+    \[T(n) - T(1) = T(n) - 0 = T(n)\]
+    \[T(n) = \lfloor n\lg{(n)} \rfloor + n\]
+    Which follows that
+    \[\lfloor n\lg{(n)} \rfloor + n - T(1) = \sum_{k=1}^{n-1} D(k)\]
+    \[\lfloor n\lg{(n)} \rfloor + n = \sum_{k=1}^{n-1} (\lfloor\lg{(n)}\rfloor + 2)\]
+    \subsection*{c. Now show that \(T(n) = \sum_{k=1}^{n-1} (\lfloor\lg{(n)}\rfloor + 2)\), implies that \(T(n) = O(n\log{(n)})\)}
+    Recall that
+    \[\sum_{k=1}^{n} \lg{(n)} = O(n\lg{(n)})\]
+    Which implies that
+    \[T(n) = \sum_{k=1}^{n-1} (\lfloor\lg{(n)}\rfloor + 2)\]
+    \[T(n) = O(n\log{(n)})\]
+
+\end{document}
