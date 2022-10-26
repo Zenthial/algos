@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.8.28) (preloaded format=pdflatex 2022.9.2)  26 OCT 2022 03:49
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.8.28) (preloaded format=pdflatex 2022.9.2)  26 OCT 2022 03:54
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1230,7 +1230,7 @@ Here is how much of TeX's memory you used:
  1141 hyphenation exceptions out of 8191
  96i,9n,102p,510b,1364s stack positions out of 10000i,1000n,20000p,200000b,80000s
 <C:/Users/iamze/AppData/Local/Programs/MiKTeX/fonts/type1/public/newpx/NewPXMI.pfb><C:/Users/iamze/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/iamze/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbxti10.pfb><C:/Users/iamze/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/iamze/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/iamze/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/iamze/AppData/Local/Programs/MiKTeX/fonts/type1/public/newpx/pxmiaX.pfb><C:/Users/iamze/AppData/Local/Programs/MiKTeX/fonts/type1/public/newpx/pxsys.pfb><C:/Users/iamze/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/txexs.pfb>
-Output written on hw4.pdf (2 pages, 102147 bytes).
+Output written on hw4.pdf (2 pages, 102149 bytes).
 PDF statistics:
  98 PDF objects out of 1000 (max. 8388607)
  2 named destinations out of 1000 (max. 500000)

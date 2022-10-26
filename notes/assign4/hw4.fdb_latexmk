@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1666770570 "c:/Users/iamze/Documents/Dendron/Algorthims/notes/assign4/hw4.tex" "hw4.pdf" "hw4" 1666770573
+["pdflatex"] 1666770878 "c:/Users/iamze/Documents/Dendron/Algorthims/notes/assign4/hw4.tex" "hw4.pdf" "hw4" 1666770881
   "C:/Users/iamze/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1666767488 149296 8ef0c6da436539577d1028a75780e2bd ""
   "C:/Users/iamze/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1662166111 10374549 774da14af08523a02750168206c9cd24 ""
   "C:/Users/iamze/AppData/Local/Programs/MiKTeX/fonts/tfm/public/amsfonts/symbols/msam10.tfm" 1233951854 916 f87d7c45f9c908e672703b83b72241a3 ""
@@ -257,8 +257,8 @@
   "C:/Users/iamze/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1656236890 56148 51a9a8571c07b9921892ae11063ae853 ""
   "C:/Users/iamze/AppData/Local/Programs/MiKTeX/tex/latex/xifthen/xifthen.sty" 1448274436 5689 1bfa68243e89a54479e7d0580773c57e ""
   "C:/Users/iamze/AppData/Local/Programs/MiKTeX/tex/latex/xkeyval/xkeyval.sty" 1656236919 4937 4ce600ce9bd4ec84d0250eb6892fcf4f ""
-  "c:/Users/iamze/Documents/Dendron/Algorthims/notes/assign4/hw4.tex" 1666770570 2681 88cd782fc75953a4e6f62363325e70f9 ""
-  "hw4.aux" 1666770572 676 b66c5536772982c21708a38161ba7070 "pdflatex"
+  "c:/Users/iamze/Documents/Dendron/Algorthims/notes/assign4/hw4.tex" 1666770878 2684 7295f86d5f15cff0a742cef6a332ef14 ""
+  "hw4.aux" 1666770881 676 b66c5536772982c21708a38161ba7070 "pdflatex"
   "letterfonts.tex" 1666766576 8702 ef32ca12e97530ef5734ca4adcb1f6b1 ""
   "macros.tex" 1666766586 3477 30332a9dc4820add7ec8e91e30b45576 ""
   "preamble.tex" 1666767444 20833 7dfc8f12e78d46e3974a1016239544ac ""
