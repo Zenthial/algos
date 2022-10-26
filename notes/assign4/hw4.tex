@@ -1,0 +1,61 @@
+\documentclass{report}
+
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\input{preamble}
+\input{macros}
+\input{letterfonts}
+
+\title{\Huge{Analysis of Algorithms} \\ \huge{Homework 4}}
+
+\author{\huge{Thomas Schollenberger (tss2344)}}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\qs{3}{
+    The expected case time complexity for the select algorithm is characterized by the following recurrence \\
+    \(T(1) = 2 \\
+        T(n) = (n + 1) + \displaystyle\frac{1}{n}\displaystyle\sum_{q=1}^{n-1} T(q)
+    \) \\
+    Use techniques, including iteration, to solve the recurrence exactly.
+}
+\pf{Proof 3}{
+    We know that:
+    \begin{align*}
+        T(n) &= (n + 1) + \displaystyle\frac{1}{n}\displaystyle\sum_{q=1}^{n-1} T(q) \\
+        T(n + 1) &= (n + 2) + \displaystyle\frac{1}{n + 1}\displaystyle\sum_{q=1}^{n} T(q)
+    \end{align*}
+    From that definition, we can assert that:
+    \begin{center}
+        \(n\left(T(n) - (n + 1)\right) = \displaystyle\sum_{q=1}^{n-1} T(q)\)
+    \end{center}
+    Thus:
+    \begin{align*}
+        T(n + 1) - T(n) &= (n + 2) - (n + 1) + \left(\displaystyle\frac{1}{n + 1}\displaystyle\sum_{q=1}^{n} T(q) - \displaystyle\frac{1}{n}\displaystyle\sum_{q=1}^{n-1} T(q)\right) \\
+        &= (n + 2) - (n + 1) + \left(\displaystyle\frac{1}{n + 1}\displaystyle\sum_{q=1}^{n-1} T(q) - \displaystyle\frac{1}{n}\displaystyle\sum_{q=1}^{n-1} T(q)\right) + \displaystyle\frac{1}{n+1}T(n) \\
+        &= 1 + \left(\displaystyle\frac{1}{n + 1}\displaystyle\sum_{q=1}^{n-1} T(q) - \displaystyle\frac{1}{n}\displaystyle\sum_{q=1}^{n-1} T(q)\right) + \displaystyle\frac{1}{n+1}T(n) \\
+        &= 1 + \left(\displaystyle\frac{1}{n + 1} - \displaystyle\frac{1}{n}\right) \displaystyle\sum_{q=1}^{n-1} T(q) + \displaystyle\frac{1}{n+1}T(n) \\
+        &= 1 - \frac{1}{n\left(n+1\right)} \displaystyle\sum_{q=1}^{n-1} T(q) + \displaystyle\frac{1}{n+1}T(n)
+    \end{align*}
+    We can now substitute from the definition:
+    \begin{align*}
+        T(n + 1) - T(n) &= 1 - \frac{1}{n\left(n+1\right)} \left(n(T(n) - (n + 1)\right) + \displaystyle\frac{1}{n+1}T(n) \\
+        &= 1 - \frac{T(n) - (n + 1)}{\left(n+1\right)} + \displaystyle\frac{T(n)}{n+1} \\
+        &= 1 - \left(\displaystyle\frac{T(n)}{n+1} - 1\right) + \displaystyle\frac{T(n)}{n+1} \\
+        &= 1 + \displaystyle\frac{-T(n)}{n+1} + 1 + \displaystyle\frac{T(n)}{n+1} \\
+        &= 2
+    \end{align*}
+    Which means we end up with, after subtracting \(-T(n)\):
+    \begin{align*}
+        T(n + 1) &= T(n) + 2 \\
+        &= 2n
+    \end{align*}
+    Proving that our select algorithm runs in \(\mathcal{O}(n)\) time
+    
+}
+\end{document}
