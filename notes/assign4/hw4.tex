@@ -17,18 +17,18 @@
 
 \maketitle
 
-\qs{3}{
+\qs{4}{
     The expected case time complexity for the select algorithm is characterized by the following recurrence \\
     \(T(1) = 2 \\
         T(n) = (n + 1) + \displaystyle\frac{1}{n}\displaystyle\sum_{q=1}^{n-1} T(q)
     \) \\
     Use techniques, including iteration, to solve the recurrence exactly.
 }
-\pf{Proof of 3}{
+\pf{Proof of 4}{
     We know that:
     \begin{align*}
-        T(n) &= (n + 1) + \displaystyle\frac{1}{n}\displaystyle\sum_{q=1}^{n-1} T(q) \\
-        T(n + 1) &= (n + 2) + \displaystyle\frac{1}{n + 1}\displaystyle\sum_{q=1}^{n} T(q)
+        T(n) |= (n + 1) + \displaystyle\frac{1}{n}\displaystyle\sum_{q=1}^{n-1} T(q) \\
+        T(n + 1) |= (n + 2) + \displaystyle\frac{1}{n + 1}\displaystyle\sum_{q=1}^{n} T(q)
     \end{align*}
     From that definition, we can assert that:
     \begin{center}
@@ -36,26 +36,49 @@
     \end{center}
     Thus:
     \begin{align*}
-        T(n + 1) - T(n) &= (n + 2) - (n + 1) + \left(\displaystyle\frac{1}{n + 1}\displaystyle\sum_{q=1}^{n} T(q) - \displaystyle\frac{1}{n}\displaystyle\sum_{q=1}^{n-1} T(q)\right) \\
-        &= (n + 2) - (n + 1) + \left(\displaystyle\frac{1}{n + 1}\displaystyle\sum_{q=1}^{n-1} T(q) - \displaystyle\frac{1}{n}\displaystyle\sum_{q=1}^{n-1} T(q)\right) + \displaystyle\frac{1}{n+1}T(n) \\
-        &= 1 + \left(\displaystyle\frac{1}{n + 1}\displaystyle\sum_{q=1}^{n-1} T(q) - \displaystyle\frac{1}{n}\displaystyle\sum_{q=1}^{n-1} T(q)\right) + \displaystyle\frac{1}{n+1}T(n) \\
-        &= 1 + \left(\displaystyle\frac{1}{n + 1} - \displaystyle\frac{1}{n}\right) \displaystyle\sum_{q=1}^{n-1} T(q) + \displaystyle\frac{1}{n+1}T(n) \\
-        &= 1 - \frac{1}{n\left(n+1\right)} \displaystyle\sum_{q=1}^{n-1} T(q) + \displaystyle\frac{1}{n+1}T(n)
+        T(n + 1) - T(n) |= (n + 2) - (n + 1) + \left(\displaystyle\frac{1}{n + 1}\displaystyle\sum_{q=1}^{n} T(q) - \displaystyle\frac{1}{n}\displaystyle\sum_{q=1}^{n-1} T(q)\right) \\
+        |= (n + 2) - (n + 1) + \left(\displaystyle\frac{1}{n + 1}\displaystyle\sum_{q=1}^{n-1} T(q) - \displaystyle\frac{1}{n}\displaystyle\sum_{q=1}^{n-1} T(q)\right) + \displaystyle\frac{1}{n+1}T(n) \\
+        |= 1 + \left(\displaystyle\frac{1}{n + 1}\displaystyle\sum_{q=1}^{n-1} T(q) - \displaystyle\frac{1}{n}\displaystyle\sum_{q=1}^{n-1} T(q)\right) + \displaystyle\frac{1}{n+1}T(n) \\
+        |= 1 + \left(\displaystyle\frac{1}{n + 1} - \displaystyle\frac{1}{n}\right) \displaystyle\sum_{q=1}^{n-1} T(q) + \displaystyle\frac{1}{n+1}T(n) \\
+        |= 1 - \frac{1}{n\left(n+1\right)} \displaystyle\sum_{q=1}^{n-1} T(q) + \displaystyle\frac{1}{n+1}T(n)
     \end{align*}
     We can now substitute from the definition:
     \begin{align*}
-        T(n + 1) - T(n) &= 1 - \frac{1}{n\left(n+1\right)} \left(n(T(n) - (n + 1)\right) + \displaystyle\frac{1}{n+1}T(n) \\
-        &= 1 - \frac{T(n) - (n + 1)}{\left(n+1\right)} + \displaystyle\frac{T(n)}{n+1} \\
-        &= 1 - \left(\displaystyle\frac{T(n)}{n+1} - 1\right) + \displaystyle\frac{T(n)}{n+1} \\
-        &= 1 + \displaystyle\frac{-T(n)}{n+1} + 1 + \displaystyle\frac{T(n)}{n+1} \\
-        &= 2
+        T(n + 1) - T(n) |= 1 - \frac{1}{n\left(n+1\right)} \left(n(T(n) - (n + 1)\right) + \displaystyle\frac{1}{n+1}T(n) \\
+        |= 1 - \frac{T(n) - (n + 1)}{\left(n+1\right)} + \displaystyle\frac{T(n)}{n+1} \\
+        |= 1 - \left(\displaystyle\frac{T(n)}{n+1} - 1\right) + \displaystyle\frac{T(n)}{n+1} \\
+        |= 1 + \displaystyle\frac{-T(n)}{n+1} + 1 + \displaystyle\frac{T(n)}{n+1} \\
+        |= 2
     \end{align*}
     Which means we end up with, after subtracting \(-T(n)\):
     \begin{align*}
-        T(n + 1) &= T(n) + 2 \\
-        &= 2n
+        T(n + 1) |= T(n) + 2 \\
+        |= 2n
     \end{align*}
     Proving that our select algorithm runs in \(\mathcal{O}(n)\) time
     
+}
+
+\qs{5}{
+    a. CLRS 20.1-1 \\
+    b. CLRS 20.1-8
+}
+\pf{Answer to 5a}{
+    Out-degree: \(\theta(V + E)\), 
+    In-degree: \(\theta(VE)\)
+}
+\pf{Answer to 5b}{
+    The expected look up time to see if an edge is in the graph is \(\mathcal{O}(\frac{n}{m})\), 
+    where n is the number of edges in the graph and m is the size of the hash table. This is because, due to the uniform hashing algorithm used in the table, 
+    the edges would all hash to the same value and then be chained to their respective index. 
+    This would make the hash table function almost identically to a linked list.\\
+    A better solution would be a matrix. If we grouped our matrix by adjacent edges, this would have \(\mathcal{O}(1)\) look up time. 
+    The matrix would take up more space, but the speed-space tradeoff would be worth it.
+}
+\qs{6}{
+    CLRS 20.2-2
+}
+\pf{Answer to 6}{
+    \[d_r = 4 d_s = 3 d_{t/x/y} = 1 d_u = 0 d_v = 5 d_w = 2\]
 }
 \end{document}
