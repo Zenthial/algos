@@ -1,0 +1,102 @@
+\documentclass{report}
+
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{tikz}
+\usepackage[T1]{fontenc}
+\usepackage{color}
+
+\definecolor{light}{rgb}{0.5, 0.5, 0.5}
+\def\light#1{{\color{light}#1}}
+
+\input{preamble}
+\input{macros}
+\input{letterfonts}
+
+\title{\Large{Analysis of Algorithms} \\ \huge{Homework 4}}
+
+\author{\Large{Thomas Schollenberger (tss2344)}}
+% \date{}
+
+\begin{document}
+
+\maketitle
+
+\qs{1}{a. Consider the following chain of six matrices: \(A_0, A_1, A_2, A_3, A_4, and A_5\), where \(A_0\) is \(5 \times 10\), \(A_1\) is
+\(10 \times 3\), \(A_2\) is \(3 \times 12\), \(A_3\) is \(12 \times 5\), \(A_4\) is \(5 \times 50\), and \(A_5\) is \(50 \times 6\). 
+Find an optimal parenthesization of this matrix-chain. Show both the table containing the optimal number of scalar operations for all slices and the choice table.
+\\
+b. Prove using the strong form of induction that for any \(n \in \mathcal{N}\), if \(n \geq 1\) then a full parenthesization of an \(n\)-element expression has 
+\(n - 1\) pairs of parentheses.
+}
+\pf{Answer to 1a}{
+    The optimal ordering is \(((A_1 \times A_2) \times (A_3 \times A_4) \times (A_5))\). \\
+}
+\pf{Proof of 1b}{
+    Suppose that a full parenthesization of an \(n\)-element matrix multiplication has \(n - 1\) parentheses.\\
+    Basis:\\
+    Let \(n = 2\). The optimal parenthesization, by default, is \(A_1 \times A_2\) \\
+    \\
+    Inductive Step:\\
+    If we take \(k + 1\) matricies, then the optimal parenthesization of these matricies is:\\
+    \((A_1 \times A_2 ... A_j)(A_{j+1} \times A_{j+2} ... A_{k+1})\)\\
+    The two sides are implicitly parenthesized correctly. By the inductive hypothesis, we know that the first side has \(j - 1\) parentheses, and the second has \((k + 1 - j + 1) - 1\).
+    This means that the total amount of parentheses are \((j - 1) + (k + 1 - j + 1) - 1\), 
+    which simplifies into \(k - 1\), proving that the full parenthesization of a \(n\)-element matrix has \(n - 1 parentheses\).
+}
+\qs{2}{
+    a. CLRS 14.3-1\\
+    b. Draw the recursion tree for the merge-sort algorithm on an input sequence of length 16. Explain why
+    memoization fails to speed up a good divide-and-conquer algorithm like merge-sort \\
+    c. Consider a variant of the matrix-chain multiplication problem in which the goal is to parenthesize the
+    sequence of matrices so as to maximize the number of scalar multiplications. Does this problem exhibit
+    optimal substructure?
+}
+\pf{Answer to 2a}{
+    Recursive algorithm. Although it does duplicate computation, it also solves the problem faster, 
+    as enumerating all ways to parenthesize the product and computing the number of multiplications for each takes much longer than just running the recursive algorithm.
+}
+
+\pf{Answer to 2b}{
+    Recursive tree:\\
+    | 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 |\\
+    | 1 2 3 4 5 6 7 8 | | 9 10 11 12 13 14 15 16 | \\
+    | 1 2 3 4 | | 5 6 7 8 | | 9 10 11 12 | | 13 14 15 16 | \\
+    | 1 2 | | 3 4 | | 5 6 | | 7 8 | | 9 10 | | 11 12 | | 13 14 | | 15 16 | \\
+    | 1 | | 2 | | 3 | | 4 | | 5 | | 6 | | 7 | | 8 | | 9 | | 10 | | 11 | | 12 | | 13 | | 14 | | 15 | | 16 | \\
+    | 1 2 | | 3 4 | | 5 6 | | 7 8 | | 9 10 | | 11 12 | | 13 14 | | 15 16 | \\
+    | 1 2 3 4 | | 5 6 7 8 | | 9 10 11 12 | | 13 14 15 16 | \\
+    | 1 2 3 4 5 6 7 8 | | 9 10 11 12 13 14 15 16 | \\
+    | 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 |\\
+    Memoization is the idea that we store the results of computations that occur. 
+    However, in sorting, the same computation will not occur twice, thus making it actually take slower to look up if the computation exists.
+}
+\pf{Answer to 2c}{
+    Yes it does. Just like finding the smallest amount of scalar multiplications, it would also exhibit the optimal substructure.
+}
+\qs{3}{
+    (\textbf{project}) Recall \(F_n\) the recurrence that defines the Fibonacci numbers. Write a function \light{fibDyn} that computes
+    Fibonacci numbers which implements the naive recurrence via dynamic programming.
+}
+
+\qs{4}{
+    Consider the 0-1 knapsack problem in CLRS chapter 15 (or elsewhere).\\
+
+    a. Write functional pseudo-code for a recursive solution to the variation on the 0-1 knapsack problem that computes the maximum value that can be placed in the knapsack.
+    The first parameter is a sequence of items (i.e., value-weight pairs), and the second parameter is the knapsack weight capacity.
+    Note that weights are natural numbers.\\
+    b. (\textbf{project}) Give a dynamic programming solution to the 0-1 knapsack problem that is based on the previous
+    problem; this algorithm should take and return the same values as the functional pseudo-code above.
+    Implement this algorithm and call it \light{knapsack}.
+}
+
+\pf{Answer to 4a}{
+    \[\text{ks((w, v) :: pairs, capacity)} = \begin{cases}
+        \text{ks(pairs, capacity)} & \text{w} > \text{capacity} \\
+        \text{max(v} + \text{ks(pairs, capacity - w)}, \text{ks(pairs, capacity)} \text{)} & \text{otherwise} \\
+    \end{cases}
+    \]
+}
+
+\end{document}
