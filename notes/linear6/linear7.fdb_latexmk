@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1670287375 "c:/Users/iamze/Documents/Dendron/Algorthims/notes/linear7/linear7.tex" "linear7.pdf" "linear7" 1670287380
+["pdflatex"] 1670284664 "c:/Users/iamze/Documents/Dendron/Algorthims/notes/linear6/linear7.tex" "linear7.pdf" "linear7" 1670284667
   "C:/Users/iamze/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1666938264 150947 9cc907f68569aa8e81bd50b1ad4531c9 ""
   "C:/Users/iamze/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/ecbi1000.pk" 1668149502 34112 2decba108d76bb3977e6defe3731789c ""
   "C:/Users/iamze/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/ecbx1000.pk" 1668149505 25420 4c642ff41a2092be0be641e0de1599e0 ""
@@ -46,9 +46,9 @@
   "C:/Users/iamze/AppData/Local/Programs/MiKTeX/fonts/tfm/public/txfonts/txsya.tfm" 977342760 972 2c9ffac4bbd20f91c01aaef9bf3f8710 ""
   "C:/Users/iamze/AppData/Local/Programs/MiKTeX/fonts/tfm/public/txfonts/txsyb.tfm" 977342760 988 098ca7e8cc5647b9ac21b82dbdce1f01 ""
   "C:/Users/iamze/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb" 1247596667 35752 024fb6c41858982481f6968b5fc26508 ""
-  "C:/Users/iamze/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb" 1247596667 31809 8670ca339bf94e56da1fc21c80635e2a ""
   "C:/Users/iamze/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb" 1247596667 32762 224316ccc9ad3ca0423a14971cfa7fc1 ""
   "C:/Users/iamze/AppData/Local/Programs/MiKTeX/fonts/type1/public/newpx/NewPXMI.pfb" 1591136767 25273 57c06ae0831a03c4eb441ef7894a1639 ""
+  "C:/Users/iamze/AppData/Local/Programs/MiKTeX/fonts/type1/public/newpx/NewPXMI_gnu.pfb" 1568087652 16003 379767f2e95213e4cfc7bfd5823fb860 ""
   "C:/Users/iamze/AppData/Local/Programs/MiKTeX/fonts/type1/public/newpx/pxmiaX.pfb" 1634082179 55131 37a379baccd50ac17c5ca120b382f7a1 ""
   "C:/Users/iamze/AppData/Local/Programs/MiKTeX/fonts/type1/public/newpx/pxsys.pfb" 1622492375 40420 f45498301b5afd566294a3567cb80a1d ""
   "C:/Users/iamze/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/txexs.pfb" 1620679494 33424 f912ebe54685d0a65d3c046e3d517e38 ""
@@ -268,9 +268,9 @@
   "C:/Users/iamze/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1656236890 56148 51a9a8571c07b9921892ae11063ae853 ""
   "C:/Users/iamze/AppData/Local/Programs/MiKTeX/tex/latex/xifthen/xifthen.sty" 1448274436 5689 1bfa68243e89a54479e7d0580773c57e ""
   "C:/Users/iamze/AppData/Local/Programs/MiKTeX/tex/latex/xkeyval/xkeyval.sty" 1656236919 4937 4ce600ce9bd4ec84d0250eb6892fcf4f ""
-  "c:/Users/iamze/Documents/Dendron/Algorthims/notes/linear7/linear7.tex" 1670287374 4377 6822d978220b4b2f9c43821d2568f6f1 ""
+  "c:/Users/iamze/Documents/Dendron/Algorthims/notes/linear6/linear7.tex" 1669780905 5219 02835b7aedae5130cfa1ba4ea3a395f4 ""
   "letterfonts.tex" 1668146273 8702 ef32ca12e97530ef5734ca4adcb1f6b1 ""
-  "linear7.aux" 1670287379 676 aea2d5ec288c4399a6edba31c679d822 "pdflatex"
+  "linear7.aux" 1670284667 676 aea2d5ec288c4399a6edba31c679d822 "pdflatex"
   "macros.tex" 1668146273 3477 30332a9dc4820add7ec8e91e30b45576 ""
   "preamble.tex" 1668146273 20853 22fe2a26b1704d112e4f0e1821da8595 ""
   (generated)

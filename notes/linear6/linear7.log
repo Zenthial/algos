@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.8.28) (preloaded format=pdflatex 2022.9.2)  5 DEC 2022 19:42
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.8.28) (preloaded format=pdflatex 2022.9.2)  5 DEC 2022 18:57
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**c:/Users/iamze/Documents/Dendron/Algorthims/notes/linear7/linear7.tex
-(c:/Users/iamze/Documents/Dendron/Algorthims/notes/linear7/linear7.tex
+**c:/Users/iamze/Documents/Dendron/Algorthims/notes/linear6/linear7.tex
+(c:/Users/iamze/Documents/Dendron/Algorthims/notes/linear6/linear7.tex
 LaTeX2e <2022-06-01> patch level 5
 L3 programming layer <2022-08-23> (C:\Users\iamze\AppData\Local\Programs\MiKTeX\tex/latex/base\report.cls
 Document Class: report 2021/10/04 v1.4n Standard LaTeX document class
@@ -1116,42 +1116,17 @@ File: unpxsyc.fd 2013/03/24 Fontinst v1.933 font definitions for U/npxsyc.
 {C:/Users/iamze/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}]
 
 LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <5.5> not available
-(Font)              size <5> substituted on input line 28.
+(Font)              size <5> substituted on input line 26.
 
 
 LaTeX Font Warning: Font shape `T1/cmr/m/n' in size <5.5> not available
-(Font)              size <5> substituted on input line 36.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 99--99
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 99--99
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 99--99
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 99--99
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 111--111
-
- []
+(Font)              size <5> substituted on input line 113.
 
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.182 }
+l.136 }
         [1] [2] (linear7.aux)
 
 LaTeX Font Warning: Size substitutions with differences
@@ -1159,17 +1134,17 @@ LaTeX Font Warning: Size substitutions with differences
 
  ) 
 Here is how much of TeX's memory you used:
- 36069 strings out of 477843
- 718929 string characters out of 2823600
- 1063854 words of memory out of 3000000
- 54318 multiletter control sequences out of 15000+600000
- 503492 words of font info for 113 fonts, out of 8000000 for 9000
+ 36089 strings out of 477843
+ 719334 string characters out of 2823600
+ 1067846 words of memory out of 3000000
+ 54330 multiletter control sequences out of 15000+600000
+ 502873 words of font info for 111 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  96i,15n,102p,514b,1364s stack positions out of 10000i,1000n,20000p,200000b,80000s
- <C:\Users\iamze\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbi1000.pk> <C:\Users\iamze\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1000.pk> <C:\Users\iamze\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1000.pk> <C:\Users\iamze\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1200.pk> <C:\Users\iamze\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm2074.pk> <C:\Users\iamze\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1440.pk><C:/Users/iamze/AppData/Local/Programs/MiKTeX/fonts/type1/public/newpx/NewPXMI.pfb><C:/Users/iamze/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/iamze/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Users/iamze/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/iamze/AppData/Local/Programs/MiKTeX/fonts/type1/public/newpx/pxmiaX.pfb><C:/Users/iamze/AppData/Local/Programs/MiKTeX/fonts/type1/public/newpx/pxsys.pfb><C:/Users/iamze/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/txexs.pfb><C:/Users/iamze/AppData/Local/Programs/MiKTeX/fonts/type1/public/txfonts/txsya.pfb>
-Output written on linear7.pdf (3 pages, 119897 bytes).
+ <C:\Users\iamze\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbi1000.pk> <C:\Users\iamze\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1000.pk> <C:\Users\iamze\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1000.pk> <C:\Users\iamze\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1200.pk> <C:\Users\iamze\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm2074.pk> <C:\Users\iamze\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1440.pk><C:/Users/iamze/AppData/Local/Programs/MiKTeX/fonts/type1/public/newpx/NewPXMI.pfb><C:/Users/iamze/AppData/Local/Programs/MiKTeX/fonts/type1/public/newpx/NewPXMI_gnu.pfb><C:/Users/iamze/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/iamze/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/iamze/AppData/Local/Programs/MiKTeX/fonts/type1/public/newpx/pxmiaX.pfb><C:/Users/iamze/AppData/Local/Programs/MiKTeX/fonts/type1/public/newpx/pxsys.pfb><C:/Users/iamze/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/txexs.pfb><C:/Users/iamze/AppData/Local/Programs/MiKTeX/fonts/type1/public/txfonts/txsya.pfb>
+Output written on linear7.pdf (3 pages, 114283 bytes).
 PDF statistics:
- 227 PDF objects out of 1000 (max. 8388607)
- 3 named destinations out of 1000 (max. 500000)
+ 252 PDF objects out of 1000 (max. 8388607)
+ 13 named destinations out of 1000 (max. 500000)
  157 words of extra memory for PDF output out of 10000 (max. 10000000)
 
