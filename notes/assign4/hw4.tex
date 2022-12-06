@@ -8,10 +8,10 @@
 \input{macros}
 \input{letterfonts}
 
-\title{\Huge{Analysis of Algorithms} \\ \huge{Homework 4}}
+\title{\Large{Analysis of Algorithms} \\ \huge{Homework 4}}
 
-\author{\huge{Thomas Schollenberger (tss2344)}}
-\date{}
+\author{\Large{Thomas Schollenberger (tss2344)}}
+% \date{}
 
 \begin{document}
 
@@ -76,9 +76,77 @@
     The matrix would take up more space, but the speed-space tradeoff would be worth it.
 }
 \qs{6}{
-    CLRS 20.2-2
+    a. CLRS 20.2-2\\
+    b. Show that using a single bit to store each vertex color suffices by arguing that the BFS procedure would
+    produce the same result if line 18 (of the code in the book or line 19 of the code in the slides) were removed.\\
+    c. CLRS 20.2-5
 }
-\pf{Answer to 6}{
-    \[d_r = 4 d_s = 3 d_{t/x/y} = 1 d_u = 0 d_v = 5 d_w = 2\]
+\pf{Answer to 6a}{
+    \(d\) answers: \\
+    \(d_s = 0\)\\
+    \(d_{r/v/u} = 1\)\\
+    \(d_{t/y/w} = 2\)
+    \(d_{x/z} = 3\)\\
+    \(\pi\) answers: \\
+    \(\pi_{r/u/v} = u\) \\
+    \(\pi_t = r\) \\
+    \(\pi_w = r\) \\
+    \(\pi_v = y\) \\
+    \(\pi_x = w\) \\
+    \(\pi_z = w\) \\
+    \(\pi_s = nil\)
 }
+\pf{Answer to 6b}{The purpose of the colors is to delineate what state the vertex is in. 
+There is not real purpose, other than visual, as the colors just state whether or not 
+the node is in the queue. This means that we could encode this as a bit, either one or zero, which would represent in or out of the queue
+}
+\pf{Answer to 6c}{
+    Using the graph below, we can see that regardless of what order we come from (\(s\rightarrow u\rightarrow t\) or \(s\rightarrow r\rightarrow t\)), the shortest distance to t is 1.
+    This proves that the value \(d[u]\) assigned to a vertex \(u\) is independent of the order in which the vertices appear in each adjacency list. \\
+    Using the graph below, we look at \(\pi\) and see that order matters. If we go \(s\rightarrow u\rightarrow t\) then the \(\pi\) is \(u\). However, if we go \(s\rightarrow r\rightarrow t\) then the \(\pi\) is \(r\). 
+    This proves that \(\pi\) is order dependent.
+}
+\qs{7}{CLRS 20.3-6}
+\pf{Answer to 7}{
+    Algorithm implemented below
+}
+\begin{algorithm}
+    \caption{DFS Stack Implementation}
+    \KwData{G, u}
+    \ForEach{$v \in G.V$}{
+        $v.color \gets WHITE$\;
+        $v.\pi \gets NIL$;
+    }
+    $time \gets 0$\;
+    \ForEach{$v \in G.V$}{
+        \If{$v.color = WHITE$}{
+            $S\gets stack()$\;
+            $push(S, u)$\;
+            \While(Loop while the stack is not empty){$|S| \neq 0$}{
+                $x \gets peak(S)$\;
+                $x.color \gets GRAY$\;
+                $found \gets FALSE$\;
+                \ForEach{$v \in G.Adj[x]$}{
+                    \If(If there is still a vertex not visited, push it and stop looping)
+                    {$v.color = WHITE$}{
+                        $v.\pi \gets x$\;
+                        $v.color \gets GRAY$\;
+                        $time \gets time + 1$\;
+                        $push(S, v)$\;
+                        $found \gets TRUE$\;
+                        $break$\;
+                    }
+                }
+                \If(If all vertexes have been visited, this vertex itself is done)
+                {$found = FALSE$}{
+                    $time \gets time + 1$\;
+                    $x.f \gets time$\;
+                    $x.color \gets BLACK$\;
+                    $pop(S)$\;
+                }
+            }
+        }
+    }
+\end{algorithm}
+
 \end{document}

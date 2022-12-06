@@ -1,0 +1,193 @@
+\documentclass{report}
+
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[T1]{fontenc}
+\usepackage{color}
+
+
+\definecolor{light}{rgb}{0.3, 0.3, 0.3}
+\def\light#1{{\color{light}#1}}
+
+\input{preamble}
+\input{macros}
+\input{letterfonts}
+
+\title{\Large{Analysis of Algorithms} \\ \huge{Homework 6}}
+
+\author{\Large{Thomas Schollenberger (tss2344)}}
+% \date{}
+
+\begin{document}
+
+\maketitle
+
+\qs{1}{
+    Verfify that \(\{u_1, u_2\}\) is an orthogonal set and find the projection of \(y\) onto span\(\{u_1, u_2\}\).
+}
+
+\[
+  u_1 =
+  \left[ {\begin{array}{c}
+    -4 \\
+    -1 \\
+    1 \\
+  \end{array} } \right]\text{,}
+  u_2 =
+  \left[ {\begin{array}{c}
+    0 \\
+    1 \\
+    1 \\
+  \end{array} } \right]\text{,}
+  y =
+  \left[ {\begin{array}{c}
+    6 \\
+    4 \\
+    1 \\
+  \end{array} } \right]
+\]
+
+\pf{Answer to 1}{
+    \(u_1\left(u_2\right) = -4(0) + -1(1) + 1(1) = 0\) \\
+    \[
+        A =
+        \left[ {\begin{array}{cc}
+            -4 & 0 \\
+            -1 & 1 \\
+            1 & 1 \\
+        \end{array} } \right]
+    \] \\
+
+    \(A^TA = \left[ {\begin{array}{cc}
+        18 & 0 \\
+        0 & 2 \\
+    \end{array} } \right]\) \\
+
+    \(A^Ty = \left[ {\begin{array}{c}
+        21 \\
+        5 \\
+    \end{array} } \right]\) \\
+
+    \begin{align*}
+        &\left[ {\begin{array}{ccc}
+            18 & 0 & 21 \\
+            0 & 2 & 5 \\
+        \end{array} } \right] \\
+        &\left[ {\begin{array}{ccc}
+            1 & 0 & \frac{7}{6} \\
+            0 & 1 & \frac{5}{2} \\
+        \end{array} } \right] \\
+        &= \left[ {\begin{array}{c}
+            \frac{7}{6} \\
+            \frac{5}{2} \\
+        \end{array} } \right] \\
+    \end{align*}
+
+    \[
+        y_{proj} = A\left[ {\begin{array}{c}
+            \frac{7}{6} \\
+            \frac{5}{2} \\
+        \end{array} } \right] = \frac{1}{3}\left[
+            \begin{array}{c}
+                14 \\
+                4 \\
+                11 \\
+            \end{array}
+        \right]  
+    \]
+}
+
+\qs{2}{
+    Let \(u_1, \dots , u_p\) be an orthogonal basis for a subspace \(W\) of \(\mathcal{R}^n\), and let \(T : \mathcal{R}^n \rightarrow \mathcal{R}^n
+    \) be defined by \(T\)(x) = \(\text{proj}_W\) x. Show that \(T\) is a linear transformation
+}
+
+\pf{Answer to 2}{
+    \(T\) is a linear transformation because it is a linear combination of the basis vectors. \\
+    \[
+        T\left( \sum_{i=1}^n c_i u_i \right) = \sum_{i=1}^n c_i \text{proj}_W u_i = \sum_{i=1}^n c_i u_i
+    \]
+}
+
+\qs{3}{
+    Use the Gram-Schmidt process to find an orthogonal basis for the column space of
+}
+
+\[
+    A =
+    \left[ {\begin{array}{ccc}
+        1 & 3 & 5 \\
+        -1 & 3 & 1 \\
+        0 & 2 & 3 \\
+        1 & 5 & 2 \\
+        1 & 5 & 8 \\
+    \end{array} } \right]
+\]
+
+\pf{Answer to 3}{
+    \(u_1 = \left[ {\begin{array}{c}
+        1 \\
+        -1 \\
+        0 \\
+        1 \\
+        1 \\
+    \end{array} } \right]\),
+
+    \(u_2 = \left[
+        \begin{array}{c}
+            3 \\
+            3 \\
+            2 \\
+            5 \\
+            5 \\
+        \end{array}
+    \right]\),
+
+    \(u_3 = \left[
+        \begin{array}{c}
+            5 \\
+            1 \\
+            3 \\
+            2 \\
+            8 \\
+        \end{array}
+    \right]\)
+
+    \(v_1 = u_1\)
+    \(v_2 = u_2 - \frac{u_2\left(v_1\right)}{v_1\left(v_1\right)} v_1\)
+    \(v_3 = u_3 - \frac{u_3\left(v_1\right)}{v_1\left(v_1\right)} v_1 - \frac{u_3\left(v_2\right)}{v_2\left(v_2\right)} v_2\)
+
+    \(v_2 = \frac{1}{2}\left[
+        \begin{array}{c}
+            1 \\
+            11 \\
+            4 \\
+            5 \\
+            5 \\
+        \end{array}
+    \right]\)
+
+    \(v_3 = \frac{1}{2}\left[
+        \begin{array}{c}
+            1 \\
+            1 \\
+            1 \\
+            1 \\
+            1 \\
+        \end{array}
+    \right]\)
+
+    \(\left\{v_1, v_2, v_3\right\}\) is an orthogonal basis for the column space of \(A\)
+}
+
+\qs{4}{
+    Let \(W\) be the span of the first two columns of the matrix from question \(3\), and let \(x \in W\) be defined
+    below. Use your answer from question \(3\) to decompose \(x\) into a vector \(\hat{x} \in W\) and a vector \(z \in W^{\bot}\).
+}
+
+\pf{Answer to 4}{
+    
+}
+
+\end{document}

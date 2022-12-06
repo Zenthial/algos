@@ -1,0 +1,273 @@
+\documentclass{report}
+
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[T1]{fontenc}
+\usepackage{color}
+
+
+\definecolor{light}{rgb}{0.3, 0.3, 0.3}
+\def\light#1{{\color{light}#1}}
+
+\input{preamble}
+\input{macros}
+\input{letterfonts}
+
+\title{\Large{Analysis of Algorithms} \\ \huge{Homework 4}}
+
+\author{\Large{Thomas Schollenberger (tss2344)}}
+% \date{}
+
+\begin{document}
+
+\maketitle
+
+\qs{1}{a. Consider the following chain of six matrices: \(A_0, A_1, A_2, A_3, A_4, and A_5\), where \(A_0\) is \(5 \times 10\), \(A_1\) is
+\(10 \times 3\), \(A_2\) is \(3 \times 12\), \(A_3\) is \(12 \times 5\), \(A_4\) is \(5 \times 50\), and \(A_5\) is \(50 \times 6\). 
+Find an optimal parenthesization of this matrix-chain. Show both the table containing the optimal number of scalar operations for all slices and the choice table.
+\\
+b. Prove using the strong form of induction that for any \(n \in \mathcal{N}\), if \(n \geq 1\) then a full parenthesization of an \(n\)-element expression has 
+\(n - 1\) pairs of parentheses.
+}
+\pf{Answer to 1a}{
+    The optimal ordering is \(((A_1 \times A_2) \times (A_3 \times A_4) \times (A_5))\). \\
+
+    \begin{tabular}{|c|c|c|c|c|c|c|}
+        \hline
+        i/j & 0 & 1 & 2 & 3 & 4 & 5 \\
+        \hline
+        0 & 0 & 150 & 330 & 405 & 1655 & 2010 \\
+        \hline
+        1 & & 0 & 360 & 330 & 2430 & 1950 \\
+        \hline
+        2 & & & 0 & 180 & 930 & 1770 \\
+        \hline
+        3 & & & & 0 & 3000 & 1860 \\
+        \hline
+        4 & & & & & 0 & 1500 \\
+        \hline
+        5 & & & & & & 0 \\
+        \hline
+    \end{tabular}
+
+    \begin{tabular}{|c|c|c|c|c|c|c|}
+        \hline
+        i/j & 0 & 1 & 2 & 3 & 4 & 5\\
+        \hline
+        0 & & 0 & 1 & 1 & 3 & 1 \\
+        \hline
+        1 & & & 1 & 1 & 1 & 1 \\
+        \hline
+        2 & & & & 2 & 3 & 3 \\
+        \hline
+        3 & & & & & 3 & 3 \\
+        \hline
+        4 & & & & & & 4 \\
+        \hline
+        5 & & & & & & \\
+        \hline
+    \end{tabular}
+}
+\pf{Proof of 1b}{
+    Suppose that a full parenthesization of an \(n\)-element matrix multiplication has \(n - 1\) parentheses.\\
+    Basis:\\
+    Let \(n = 2\). The optimal parenthesization, by default, is \(A_1 \times A_2\) \\
+    \\
+    Inductive Step:\\
+    If we take \(k + 1\) matricies, then the optimal parenthesization of these matricies is:\\
+    \((A_1 \times A_2 ... A_j)(A_{j+1} \times A_{j+2} ... A_{k+1})\)\\
+    The two sides are implicitly parenthesized correctly. By the inductive hypothesis, we know that the first side has \(j - 1\) parentheses, and the second has \((k + 1 - j + 1) - 1\).
+    This means that the total amount of parentheses are \((j - 1) + (k + 1 - j + 1) - 1\), 
+    which simplifies into \(k\), proving that the full parenthesization of a \(k + 1\)-element matrix has \(k\) parentheses or that a \(n\)-element matrix has \(n - 1\) parentheses.
+}
+\qs{2}{
+    a. CLRS 14.3-1\\
+    b. Draw the recursion tree for the merge-sort algorithm on an input sequence of length 16. Explain why
+    memoization fails to speed up a good divide-and-conquer algorithm like merge-sort \\
+    c. Consider a variant of the matrix-chain multiplication problem in which the goal is to parenthesize the
+    sequence of matrices so as to maximize the number of scalar multiplications. Does this problem exhibit
+    optimal substructure?
+}
+\pf{Answer to 2a}{
+    Recursive algorithm. Although it does duplicate computation, it also solves the problem faster, 
+    as enumerating all ways to parenthesize the product and computing the number of multiplications for each takes much longer than just running the recursive algorithm.
+}
+
+\pf{Answer to 2b}{
+    Recursive tree:\\
+    | 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 |\\
+    | 1 2 3 4 5 6 7 8 | | 9 10 11 12 13 14 15 16 | \\
+    | 1 2 3 4 | | 5 6 7 8 | | 9 10 11 12 | | 13 14 15 16 | \\
+    | 1 2 | | 3 4 | | 5 6 | | 7 8 | | 9 10 | | 11 12 | | 13 14 | | 15 16 | \\
+    | 1 | | 2 | | 3 | | 4 | | 5 | | 6 | | 7 | | 8 | | 9 | | 10 | | 11 | | 12 | | 13 | | 14 | | 15 | | 16 | \\
+    | 1 2 | | 3 4 | | 5 6 | | 7 8 | | 9 10 | | 11 12 | | 13 14 | | 15 16 | \\
+    | 1 2 3 4 | | 5 6 7 8 | | 9 10 11 12 | | 13 14 15 16 | \\
+    | 1 2 3 4 5 6 7 8 | | 9 10 11 12 13 14 15 16 | \\
+    | 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 |\\
+    Memoization is the idea that we store the results of computations that occur. 
+    However, in sorting, the same computation will not occur twice, thus making it actually take slower to look up if the computation exists.
+}
+\pf{Answer to 2c}{
+    Yes it does. Just like finding the smallest amount of scalar multiplications, it would also exhibit the optimal substructure.
+}
+\qs{3}{
+    (\textbf{project}) Recall \(F_n\) the recurrence that defines the Fibonacci numbers. Write a function \light{fibDyn} that computes
+    Fibonacci numbers which implements the naive recurrence via dynamic programming.
+}
+
+\qs{4}{
+    Consider the 0-1 knapsack problem in CLRS chapter 15 (or elsewhere).\\
+
+    a. Write functional pseudo-code for a recursive solution to the variation on the 0-1 knapsack problem that computes the maximum value that can be placed in the knapsack.
+    The first parameter is a sequence of items (i.e., value-weight pairs), and the second parameter is the knapsack weight capacity.
+    Note that weights are natural numbers.\\
+    b. (\textbf{project}) Give a dynamic programming solution to the 0-1 knapsack problem that is based on the previous
+    problem; this algorithm should take and return the same values as the functional pseudo-code above.
+    Implement this algorithm and call it \light{knapsack}.\\
+    c. (\textbf{project}) Implement a function called \light{knapsackContents} that takes the same values but returns a
+    sequence of items that maximize the knapsack's value \\
+}
+
+\pf{Answer to 4a}{
+    \[\text{ks((w, v) :: pairs, capacity)} = \begin{cases}
+        \text{ks(pairs, capacity)} & \text{w} > \text{capacity} \\
+        \text{max(v} + \text{ks(pairs, capacity - w)}, \text{ks(pairs, capacity)} \text{)} & \text{otherwise} \\
+    \end{cases}
+    \]
+}
+
+\qs{5}{
+    Consider the problem of neatly printing a paragraph on the screen (or on a printer). For the project portion,
+    put all functions in the file \light{printPar}. The input text is a sequence \(S\) of \(n\) words (represented as strings) of
+    lengths \(l_1\), . . . , \(l_n\) (measured in characters). The input bound \(M\) is the maximum number of characters a line can hold.
+    The key to neatly printing a paragraph is to identify in the text sequence the lines of the paragraph so
+    that new-lines can be placed at the end of each line. We can formalize the notion of the “badness” of a line as
+    the number of extra space characters at the end of the line or \(\infty\) if the bound \(M\) is exceeded. We can formalize
+    the notion of the “badness” of a paragraph as the badness of the worst (i.e., maximum) line of the paragraph not
+    including the last line. Thus to identify the lines for a neat paragraph, we seek to minimize the badness of the
+    paragraph. \\ \\
+    a. If a given line contains words \(i\) through \(j\), and we leave exactly one space between words, the number of extra space characters
+    at the end of the line is \(M - j + i - \sum_{k=i}^{j} l_k\). Write functional pseudo-code for the function \(e(S\), \(M\), \(i\), \(j)\)
+    that computes the number of extra space characters at the end of a line.\\
+    b. (\textbf{project}) Write a procedure \light{extraSpace} that implements \(e\).\\
+    c. Use the function \(e\) to write functional pseudo-code for the function \(bl(S\), \(M\), \(i\), \(j)\) that computes line badness.\\
+    d. (\textbf{project}) Write a procedure \light{badnessLine} that implements \(bl\).
+    e. Write functional pseudo-code for the recursive function \(mb(S\), \(M)\) that computes the minimum paragraph
+    badness (using slicing). The base case must be that the sequence \(S\) is the last line (and \textit{not} that \(S\) is empty).\\
+    f. Write functional pseudo-code for the recursive function \(mb'(S\), \(M\), i) where \(mb'(S\), \(M\), i) = \(mb(S[i:]\), \(M)\). 
+    The base case must be that the sequence characterized by \(S\) and \(i\) is the last line (and \textit{not} that \(S\) is empty).\\
+    g. (\textbf{project}) Write a procedure \light{minBadness} that implements \(mb'\). 
+    It should take three parameters: \(S\), \(M\), and \(i\) a slicing index.\\
+    h. (\textbf{project}) Write a procedure \light{minBadnessDynamic} that implements the function \(mb'\) using dynamic programming.
+    It should take only two parameters: \(S\) and \(M\).\\
+    i. (\textbf{project}) Write a procedure \light{minBadDynamicChoice} that implements the function \(mb'\) using dynamic programming.
+    In addition to returning \(mb(S\),\(M)\), it should also return the choices made. Then write a procedure \light{printParagraph} 
+    which takes two parameters: \(S\) and \(M\) that displays the words in \(S\) on the screen using the choices of \light{minBadDynamicChoice}.
+    What is the asymptotic running time of your procedure?\\
+}
+
+\pf{Answer to 5a}{
+    \[\text{e(S, M, i, j)} = \text{M} - \text{j} + \text{i} - \sum_{k=i}^{j} \text{l}_k\]
+}
+
+\pf{Answer to 5c}{
+    \[\text{bl(S, M, i, j)} = \begin{cases}
+        \infty & \text{e(S, M, i, j)} < 0 \\
+        \text{e(S, M, i, j)} & \text{otherwise} \\
+    \end{cases}
+    \]
+}
+
+\pf{Answer to 5e}{
+    \[\text{mb(s :: } [] \text{, M)} = \text{bl(s, M, 0, length(s))}\]
+    \[\text{mb(s :: S, M)} = \text{bl(s, M, i, j)} + \text{mb}(S[j+1:]\text{, M})\]
+    \[\text{where: i} = 0\text{, j} = \text{length}(s)\]
+}
+
+\pf{Answer to 5f}{
+    \[
+      \text{mb'(S, M, i)} = \begin{cases}
+        \text{bl(s, M, 0, j)} & \text{if i + 1 = length(S)} \\
+        \text{bl(s, M, 0, j)} + \text{mb(S, M, }i + 1\text{)} & \text{otherwise}
+        
+      \end{cases}
+    \]
+    \[\text{where: s} = S[i]\text{, j} = \text{length}(s)\]
+}
+
+\qs{6}{
+    CLRS 22.1-1
+}
+
+\pf{Answer to 6}{
+    Vertez \(z\) as the source: \\
+    \(d\) values: \\
+    \begin{tabular}{|c|c|c|c|c|}
+        \hline
+        s & t & x & y & z \\
+        \hline
+        \(\infty\) & \(\infty\) & \(\infty\) & \(\infty\) & 0 \\
+        \hline
+        2 & \(\infty\) & 7 & \(\infty\) & 0 \\
+        \hline
+        2 & 5 & 7 & 9 & 0 \\
+        \hline
+        2 & 5 & 6 & 9 & 0 \\
+        \hline
+        2 & 5 & 6 & 9 & 0 \\
+        \hline
+    \end{tabular} \\
+    \(\pi\) values: \\
+    \begin{tabular}{|c|c|c|c|c|}
+        \hline
+        s & t & x & y & z \\
+        \hline
+        nul & nul & nul & nul & nul \\
+        \hline
+        z & nul & z & nul & nul \\
+        \hline
+        z & x & z & s & nul \\
+        \hline
+        z & x & y & s & nul \\
+        \hline
+        z & x & y & s & nul \\
+        \hline
+    \end{tabular}
+    \\ \\
+    edge(\(z\), \(x\)) \(= 4\)\\
+    \(d\) values: \\
+    \begin{tabular}{|c|c|c|c|c|}
+        \hline
+        s & t & x & y & z \\
+        \hline
+        0 & \(\infty\) & \(\infty\) & \(\infty\) & \(\infty\) \\
+        \hline
+        0 & 6 & \(\infty\) & 7 & \(\infty\) \\
+        \hline
+        0 & 6 & 4 & 7 & 2 \\
+        \hline
+        0 & 2 & 4 & 7 & 2 \\
+        \hline
+        0 & 2 & 4 & 7 & \(-2\) \\
+        \hline
+    \end{tabular} \\
+    \(\pi\) values: \\
+    \begin{tabular}{|c|c|c|c|c|}
+        \hline
+        s & t & x & y & z \\
+        \hline
+        nul & nul & nul & nul & nul \\
+        \hline
+        nul & s & nul & s & nul \\
+        \hline
+        nul & s & y & s & t \\
+        \hline
+        nul & x & y & s & t \\
+        \hline
+        nul & x & y & s & t \\
+        \hline
+    \end{tabular}
+}
+
+\end{document}
