@@ -1,6 +1,6 @@
 # Fdb version 3
-["pdflatex"] 1666922874 "/Users/tom/Documents/RIT/algos/notes/assign4/hw4.tex" "hw4.pdf" "hw4" 1666922876
-  "/Users/tom/Documents/RIT/algos/notes/assign4/hw4.tex" 1666922873 3635 823e5b0427da4b958b1ca9f62f7be40b ""
+["pdflatex"] 1666922908 "/Users/tom/Documents/RIT/algos/notes/assign4/hw4.tex" "hw4.pdf" "hw4" 1666922911
+  "/Users/tom/Documents/RIT/algos/notes/assign4/hw4.tex" 1666922908 3634 b29bbe420373789e7c5c75030eb2b55a ""
   "/usr/local/texlive/2022/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm" 1246382020 916 f87d7c45f9c908e672703b83b72241a3 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam5.tfm" 1246382020 924 9904cf1d39e9767e7a3622f2a125a565 ""
@@ -261,8 +261,8 @@
   "/usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1647878959 4410336 7d30a02e9fa9a16d7d1f8d037ba69641 ""
   "/usr/local/texlive/2022/texmf-var/web2c/pdftex/pdflatex.fmt" 1662155500 2826433 3fa3fb45cf4822b1c9f73265238b1e67 ""
   "/usr/local/texlive/2022/texmf.cnf" 1647878952 577 209b46be99c9075fd74d4c0369380e8c ""
-  "hw4.aux" 1666922876 808 5bd5371b11fafbbc2b2fb6199239888c "pdflatex"
-  "hw4.tex" 1666922873 3635 823e5b0427da4b958b1ca9f62f7be40b ""
+  "hw4.aux" 1666922911 808 5bd5371b11fafbbc2b2fb6199239888c "pdflatex"
+  "hw4.tex" 1666922908 3634 b29bbe420373789e7c5c75030eb2b55a ""
   "letterfonts.tex" 1666910109 8702 ef32ca12e97530ef5734ca4adcb1f6b1 ""
   "macros.tex" 1666910109 3477 30332a9dc4820add7ec8e91e30b45576 ""
   "preamble.tex" 1666910109 20833 7dfc8f12e78d46e3974a1016239544ac ""
